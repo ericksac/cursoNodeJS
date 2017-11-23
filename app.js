@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,8 +8,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose'); 
-var index = require('./routes/index');
-var users = require('./routes/users');
+require('./modelos/ESShow')(app, mongoose);
+
 
 
 mongoose.connect('mongodb://localhost/curso_bdg',{useMongoClient:true}, (err)=>{
@@ -15,13 +17,19 @@ if(err)
 {
   return console.log(err);
 }
+
 console.log("Conectado a Mongo");
 
-
-
 });
+var index = require('./routes/index');
+var users = require('./routes/users');
 
 var app = express();
+
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -55,5 +63,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

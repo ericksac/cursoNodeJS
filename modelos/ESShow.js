@@ -4,5 +4,6 @@ module.exports=(app, mongoose)=>{
             anio:{type:Number},
             pais:{type:String}
     });
+
     mongoose.model('ESShow', ESShowSchema);
 }

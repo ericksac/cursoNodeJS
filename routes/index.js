@@ -11,10 +11,10 @@ const controllers = require('../controladores');
 
 
 router.get('/test', controllers.esControlador.getArray);
-
+router.get('/test/:id', controllers.esControlador.getById);
   
 router.post('/test', controllers.esControlador.postArray);
-router.delete('/test:id', controllers.esControlador.deleteEsShow);
+router.delete('/test1/:id', controllers.esControlador.deleteEsShow);
 router.put('/test/:id', controllers.esControlador.updateEsShow);
 
 //router.delete('/test/:id', controllers.esControlador.detete);
